@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private bool jumpRequested;
     private float initialPlayerHeight;
     private float playerAngle;
     private Rigidbody2D rigidBody2d;
@@ -17,9 +18,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-          HandleJump();
+          jumpRequested = true;
         }
         HandleCrouch();
+    }
+    private void FixedUpdate()
+    {
+        if (jumpRequested)
+        {
+            HandleJump();
+            jumpRequested = false;
+        }
     }
     void HandleCrouch()
     {
@@ -41,5 +50,12 @@ public class PlayerController : MonoBehaviour
             rigidBody2d.linearVelocity = Vector2.up * jumpHeight;
         }
 
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Obstacle"))
+        {
+            print("GAME OVER");
+        }
     }
 }
