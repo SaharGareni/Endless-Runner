@@ -2,53 +2,59 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private BoxCollider2D standBoxCollider;
+    [SerializeField] private BoxCollider2D crouchBoxCollider;
     private bool jumpRequested;
+    private bool crouchRequested;
     private float initialPlayerHeight;
-    private float playerAngle;
     private Rigidbody2D rigidBody2d;
     public float jumpHeight;
-    public float crouchAngle = 45f;
     void Start()
     {
         initialPlayerHeight = transform.position.y;
         rigidBody2d = transform.GetComponent<Rigidbody2D>();
+        crouchBoxCollider.enabled = false;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
         {
           jumpRequested = true;
         }
-        HandleCrouch();
+        if (Input.GetKey(KeyCode.DownArrow) || (Input.GetKey(KeyCode.S)))
+        {
+            crouchRequested = true;
+        }
+
     }
     private void FixedUpdate()
     {
-        if (jumpRequested)
-        {
-            HandleJump();
-            jumpRequested = false;
-        }
+        HandleJump();
+        HandleCrouch();
+
     }
     void HandleCrouch()
     {
-
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (crouchRequested)
         {
-            playerAngle = crouchAngle;
+            crouchBoxCollider.enabled = true;
+            standBoxCollider.enabled = false;
+            crouchRequested = false;
         }
         else
         {
-            playerAngle = 0;
+            standBoxCollider.enabled = true;
+            crouchBoxCollider.enabled = false;
         }
-        transform.eulerAngles = Vector3.back * playerAngle;
     }
     void HandleJump()
     {
-        if (Mathf.Abs(transform.position.y - initialPlayerHeight) < 0.1f)
+        if (Mathf.Abs(transform.position.y - initialPlayerHeight) < 0.1f && jumpRequested)
         {
             rigidBody2d.linearVelocity = Vector2.up * jumpHeight;
         }
+        jumpRequested = false;
 
     }
     private void OnTriggerEnter2D(Collider2D collider)

@@ -12,7 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     private float horizontalSpawnPosition;
     void Start()
     {
-        playerHeight = player.GetComponent<CapsuleCollider2D>().bounds.size.y;
+        playerHeight = player.GetComponent<BoxCollider2D>().bounds.size.y;
         playerYPosition = player.transform.position.y;
         mainCameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         horizontalSpawnPosition = spawnHorizontalOffset + mainCameraHalfWidth;
