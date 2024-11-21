@@ -25,7 +25,7 @@ public class Platform : MonoBehaviour
             {
                 firstSegment.position = new Vector3(secondSegment.position.x+platformWidth, secondSegment.position.y, secondSegment.position.z);
             }
-            if (secondSegment.position.x + 15.55f < -screenHalfWidth)
+            if (secondSegment.position.x + platformWidth / 2f < -screenHalfWidth)
             {
                 secondSegment.position = new Vector3(firstSegment.position.x + platformWidth, firstSegment.position.y, firstSegment.position.z);
             }
