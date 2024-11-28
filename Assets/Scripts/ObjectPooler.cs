@@ -28,7 +28,10 @@ public class ObjectPooler : MonoBehaviour
     {
         if (pool.Count > 0)
         {
-            return pool.Dequeue();
+
+            GameObject obj = pool.Dequeue();
+            return obj;
+            
         }
         else
         {
