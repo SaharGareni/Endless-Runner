@@ -48,7 +48,8 @@ public class TileSpawner : MonoBehaviour
     {
         while (true) 
         {
-            GameObject obj = prefabPooler.GetPooledObject(defaultTilePrefab);
+            int randomIndex = Random.Range(0,prefabPooler.poolItems.Length);
+            GameObject obj = prefabPooler.GetPooledObject(prefabPooler.poolItems[randomIndex].prefab);
             obj.transform.position = spawnLocation;
             obj.SetActive(true);
             yield return new WaitForSeconds(spawnInterval);
