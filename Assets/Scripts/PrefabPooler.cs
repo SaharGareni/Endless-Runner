@@ -25,27 +25,39 @@ public class PrefabPooler : MonoBehaviour
             pools.Add(item.prefab, objectQueue);
         }
     }
-    public GameObject GetPooledObject(GameObject prefab)
+    public void GetPooledObject(GameObject prefab, Vector3 spawnPosition)
     {
         if (pools.TryGetValue(prefab, out Queue<GameObject> poolQueue))
         {
             if (poolQueue.Count > 0)
             {
-                GameObject obj = poolQueue.Dequeue();
-                poolQueue.Enqueue(obj);
-                return obj;
+                GameObject obj = poolQueue.Peek();
+                if (!obj.activeInHierarchy)
+                {
+                    poolQueue.Dequeue();
+                    poolQueue.Enqueue(obj);
+                    obj.transform.position = spawnPosition;
+                    obj.SetActive(true);
+                }
+                else
+                {
+                    obj = CreateNewObject(prefab);
+                    poolQueue.Enqueue(obj);
+                    obj.transform.position = spawnPosition;
+                    obj.SetActive(true);
+                }
             }
             else
             {
-                GameObject obj = CreateNewObject(prefab);
+               GameObject obj = CreateNewObject(prefab);
                 poolQueue.Enqueue(obj);
-                return obj;
+                obj.transform.position = spawnPosition;
+                obj.SetActive(true);
             }
         }
         else
         {
             print($"{prefab.name} pool could not be found.");
-            return null;
         }
     }
     GameObject CreateNewObject(GameObject prefab)

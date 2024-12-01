@@ -3,20 +3,19 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float speed = 4.0f;
+    public float speed;
     private float despawnRange;
-    private ObjectPooler objectPool;
     void Start()
     {
         despawnRange = -(Camera.main.aspect * Camera.main.orthographicSize) - Mathf.Abs(transform.localPosition.x / 2);
-        objectPool = FindObjectOfType<ObjectPooler>();
+        speed = TileScript.speed;
     }
     void FixedUpdate()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (objectPool != null && transform.position.x < despawnRange)
+        if (transform.position.x < despawnRange)
         {
-            objectPool.ReturnObjectToPool(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

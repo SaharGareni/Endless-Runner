@@ -1,30 +1,54 @@
+using System.Collections;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnHorizontalOffset = 2f;
+    [SerializeField] private PrefabPooler prefabPooler;
+    [SerializeField] private float spawnHorizontalOffset = 1f;
     public GameObject player;
-    public ObjectPooler obstaclePool;
-    public float spawnInterval = 1.0f;
+    public float spawnInterval = 1f;
     private float playerHeight;
     private float playerYPosition;
     private float mainCameraHalfWidth;
     private float horizontalSpawnPosition;
+    private Vector3 spawnLocation;
     void Start()
     {
         playerHeight = player.GetComponent<BoxCollider2D>().bounds.size.y;
         playerYPosition = player.transform.position.y;
         mainCameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         horizontalSpawnPosition = spawnHorizontalOffset + mainCameraHalfWidth;
-        InvokeRepeating("SpawnObstacle", 0f, spawnInterval);
+        spawnLocation.x = horizontalSpawnPosition;
     }
-    void SpawnObstacle()
+    IEnumerator SpawnObstacle()
     {
-        float obstacleGroundPosition = playerYPosition;
-        float obstacleSkyPosition = playerYPosition + playerHeight*0.75f;
-        float verticalSpawnPosition = Random.Range(0, 2) == 0 ? obstacleGroundPosition : obstacleSkyPosition;
-        GameObject obstacle = obstaclePool.GetPooledObject();
-        obstacle.transform.position = new Vector2(horizontalSpawnPosition, verticalSpawnPosition);
-        obstacle.SetActive(true);
+        while (true)
+        {
+            int randomIndex = Random.Range(0, prefabPooler.poolItems.Length);
+            GameObject randomPrefab = prefabPooler.poolItems[randomIndex].prefab;
+            string objTag = randomPrefab.tag;
+            switch (objTag)
+            {
+                case "GroundObstacle":
+                    spawnLocation.y = playerYPosition;
+                    break;
+                case "LowObstacle":
+                   spawnLocation.y = playerYPosition + 0.85f;
+                    break;
+                case "HighObstacle":
+                    spawnLocation.y = playerYPosition + 0.95f;
+                    break;
+                default:
+                    spawnLocation.y = playerYPosition;
+                    break;
+
+            }
+            prefabPooler.GetPooledObject(randomPrefab, spawnLocation);
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+    void SpawnRandomObstacle()
+    {
+
     }
 }
