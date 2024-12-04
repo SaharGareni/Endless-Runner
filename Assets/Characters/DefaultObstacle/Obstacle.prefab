@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 674025047
-  m_SortingLayer: 3
+  m_SortingLayerID: 703296219
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,12 +97,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3215264062663054788}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47784ff92516b1d4eb5c3a06a16fb9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  spawnHeight: -4.68
+  useRandomHeight: 0
+  heightVariation: 0
 --- !u!61 &7066502254716572053
 BoxCollider2D:
   m_ObjectHideFlags: 0

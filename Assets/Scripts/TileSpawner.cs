@@ -15,7 +15,7 @@ public class TileSpawner : MonoBehaviour
     {
         spawnLocation = new Vector3(Camera.main.aspect * Camera.main.orthographicSize, -Camera.main.orthographicSize);
         spawnInterval = (Camera.main.aspect * Camera.main.orthographicSize * 2) / TileScript.speed;
-        StartCoroutine("TileSpawnCoroutine");
+        StartCoroutine(TileSpawnCoroutine());
 
     }
 

@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      propertyPath: spawnHeight
+      value: -3.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      propertyPath: spawnYPosition
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      propertyPath: heightVariation
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      propertyPath: useRandomHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2053346501597745371, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Controller
       value: 

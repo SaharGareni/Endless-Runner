@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      propertyPath: spawnHeight
+      value: -4.07
+      objectReference: {fileID: 0}
     - target: {fileID: 2053346501597745371, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Controller
       value: 
@@ -70,19 +74,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Size.x
-      value: 0.69413567
+      value: 0.6803142
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Size.y
-      value: 0.57127535
+      value: 0.50677466
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.x
-      value: -0.055071115
+      value: -0.048160374
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.y
-      value: -0.05126047
+      value: -0.083510816
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y

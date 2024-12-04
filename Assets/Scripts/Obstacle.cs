@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] 
+    private float spawnHeight;
+    [SerializeField] 
+    private bool useRandomHeight;
+    [SerializeField] 
+    private float heightVariation;
+    private float speed;
     private float despawnRange;
     void Start()
     {
@@ -17,5 +23,13 @@ public class Obstacle : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    public float GetSpawnHeight()
+    {
+        if (useRandomHeight)
+        {
+            return spawnHeight + UnityEngine.Random.Range(-heightVariation, heightVariation);
+        }
+        return spawnHeight;
     }
 }

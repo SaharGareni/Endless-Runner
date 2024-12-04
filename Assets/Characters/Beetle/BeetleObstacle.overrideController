@@ -6,8 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoarObstacle
+  m_Name: BeetleObstacle
   m_Controller: {fileID: 9100000, guid: 2996c64992a738340b7928ce47555b70, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: f9d2f857b33bba648aadbd32a8a393b4, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: aee3e6b9f46312e479e5edfebdd02dbd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7f0d24720d8d77649b37919cb1304328, type: 2}
