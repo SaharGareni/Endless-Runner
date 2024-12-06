@@ -11,7 +11,7 @@ public class TileScript : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(Vector2.left *Time.deltaTime * speed);
-        //for single tile
+        //for single tiles
         //if (transform.position.x <= -screenHalfWidth - transform.localScale.x/2)
         //{
         //    gameObject.SetActive(false);

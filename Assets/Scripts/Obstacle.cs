@@ -3,20 +3,33 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float speed = 4.0f;
+    [SerializeField] 
+    private float spawnHeight;
+    [SerializeField] 
+    private bool useRandomHeight;
+    [SerializeField] 
+    private float heightVariation;
+    private float speed;
     private float despawnRange;
-    private ObjectPooler objectPool;
     void Start()
     {
         despawnRange = -(Camera.main.aspect * Camera.main.orthographicSize) - Mathf.Abs(transform.localPosition.x / 2);
-        objectPool = FindObjectOfType<ObjectPooler>();
+        speed = TileScript.speed;
     }
     void FixedUpdate()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (objectPool != null && transform.position.x < despawnRange)
+        if (transform.position.x < despawnRange)
         {
-            objectPool.ReturnObjectToPool(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+    public float GetSpawnHeight()
+    {
+        if (useRandomHeight)
+        {
+            return spawnHeight + UnityEngine.Random.Range(-heightVariation, heightVariation);
+        }
+        return spawnHeight;
     }
 }

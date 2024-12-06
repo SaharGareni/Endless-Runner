@@ -1,30 +1,34 @@
+using System.Collections;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnHorizontalOffset = 2f;
-    public GameObject player;
-    public ObjectPooler obstaclePool;
-    public float spawnInterval = 1.0f;
-    private float playerHeight;
-    private float playerYPosition;
+    [SerializeField] private PrefabPooler prefabPooler;
+    [SerializeField] private float spawnHorizontalOffset = 1f;
+    public float spawnInterval = 1f;
     private float mainCameraHalfWidth;
     private float horizontalSpawnPosition;
+    private Vector3 spawnLocation;
     void Start()
     {
-        playerHeight = player.GetComponent<BoxCollider2D>().bounds.size.y;
-        playerYPosition = player.transform.position.y;
         mainCameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         horizontalSpawnPosition = spawnHorizontalOffset + mainCameraHalfWidth;
-        InvokeRepeating("SpawnObstacle", 0f, spawnInterval);
+        spawnLocation.x = horizontalSpawnPosition;
+        StartCoroutine(SpawnObstacle());
     }
-    void SpawnObstacle()
+    IEnumerator SpawnObstacle()
     {
-        float obstacleGroundPosition = playerYPosition;
-        float obstacleSkyPosition = playerYPosition + playerHeight*0.75f;
-        float verticalSpawnPosition = Random.Range(0, 2) == 0 ? obstacleGroundPosition : obstacleSkyPosition;
-        GameObject obstacle = obstaclePool.GetPooledObject();
-        obstacle.transform.position = new Vector2(horizontalSpawnPosition, verticalSpawnPosition);
-        obstacle.SetActive(true);
+        while (true)
+        {
+            SpawnRandomObstacle();
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+    void SpawnRandomObstacle()
+    {
+        int randomIndex = Random.Range(0, prefabPooler.poolItems.Length);
+        GameObject randomPrefab = prefabPooler.poolItems[randomIndex].prefab;
+        spawnLocation.y = randomPrefab.GetComponent<Obstacle>().GetSpawnHeight();
+        prefabPooler.GetPooledObject(randomPrefab, spawnLocation);
     }
 }
