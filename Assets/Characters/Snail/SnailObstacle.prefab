@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: spawnHeight
-      value: -4.34
+      value: -4.27
       objectReference: {fileID: 0}
     - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: useRandomHeight
@@ -82,15 +82,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Size.y
-      value: 0.49315143
+      value: 0.46668637
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.x
-      value: -0.031899646
+      value: -0.03189963
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.y
-      value: -0.11164838
+      value: -0.09841585
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
