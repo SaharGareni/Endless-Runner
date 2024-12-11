@@ -7,6 +7,7 @@ TagManager:
   - GroundObstacle
   - LowObstacle
   - HighObstacle
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Back
+    uniqueID: 242282701
+    locked: 0
+  - name: Mid
+    uniqueID: 1908396623
+    locked: 0
+  - name: Front
+    uniqueID: 3378888531
+    locked: 0
   - name: Background
     uniqueID: 2173303587
     locked: 0
