@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rigidBody2d;
     public float jumpHeight;
+    public static event System.Action OnPlayerDeath;
     void Start()
     {
         //Time.timeScale = 0.1f; // for debugging purposes
@@ -72,11 +73,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("yVelocity",rigidBody2d.linearVelocityY);
         animator.SetBool("isCrouching", isCrouching);
     }
-    //private void OnTriggerEnter2D(Collider2D collider)
-    //{
-    //    if (collider.CompareTag("Obstacle"))
-    //    {
-    //        print("GAME OVER");
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+
+        if (collider.CompareTag("Obstacle"))
+        {
+            OnPlayerDeath?.Invoke();
+        }
+    }
 }

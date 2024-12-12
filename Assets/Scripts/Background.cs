@@ -11,12 +11,17 @@ public class Background : MonoBehaviour
         spriteLength = GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x;
         screenHalfWidth = Camera.main.orthographicSize * Camera.main.aspect;
     }
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector2.left * speed *Time.deltaTime);
-        if (transform.position.x <= -spriteLength + 0.15f)
+        if (transform.position.x <= -spriteLength + 0.2f)
         {
             transform.position = new Vector2(spriteLength, transform.position.y);  
         }
+        ////lag machine to test 
+        //for (int i = 0; i < 1000000; i++)
+        //{
+        //    float num = Mathf.Atan2(speed, i);
+        //}
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -14,9 +15,11 @@ public class TileSpawner : MonoBehaviour
     void Start()
     {
         spawnLocation = new Vector3(Camera.main.aspect * Camera.main.orthographicSize, -Camera.main.orthographicSize);
-        spawnInterval = (Camera.main.aspect * Camera.main.orthographicSize * 2) / TileScript.speed;
         StartCoroutine(TileSpawnCoroutine());
-
+    }
+    private void Update()
+    {
+        spawnInterval = (Camera.main.aspect * Camera.main.orthographicSize * 2) / TileScript.GetTileSpeed();
     }
 
 
@@ -24,6 +27,7 @@ public class TileSpawner : MonoBehaviour
     {
         while (true) 
         {
+            
             int randomIndex = Random.Range(0,prefabPooler.poolItems.Length);
             prefabPooler.GetPooledObject(prefabPooler.poolItems[randomIndex].prefab,spawnLocation);
             yield return new WaitForSeconds(spawnInterval);

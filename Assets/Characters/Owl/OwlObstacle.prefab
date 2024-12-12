@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215264062663054788, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_TagString
-      value: HighObstacle
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6871656872739490280, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_LocalScale.x
@@ -90,15 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Size.y
-      value: 0.5395739
+      value: 0.49565881
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.x
-      value: -0.06989096
+      value: -0.069890976
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.y
-      value: -0.06096077
+      value: -0.039003223
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

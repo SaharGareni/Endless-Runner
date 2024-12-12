@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+    [SerializeField] private Vector2 minMaxSpawnInterval;
     [SerializeField] private PrefabPooler prefabPooler;
     [SerializeField] private float spawnHorizontalOffset = 1f;
-    public float spawnInterval = 1f;
+    //public float spawnInterval = 1f;
     private float mainCameraHalfWidth;
     private float horizontalSpawnPosition;
     private Vector3 spawnLocation;
@@ -21,6 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
         while (true)
         {
             SpawnRandomObstacle();
+            float spawnInterval = Mathf.Lerp(minMaxSpawnInterval.x, minMaxSpawnInterval.y, GameManager.GetDifficultyPercentage());
             yield return new WaitForSeconds(spawnInterval);
         }
     }
