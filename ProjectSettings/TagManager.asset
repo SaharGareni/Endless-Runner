@@ -4,9 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - GroundObstacle
-  - LowObstacle
-  - HighObstacle
   - Obstacle
   layers:
   - Default

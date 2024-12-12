@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215264062663054788, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_TagString
-      value: LowObstacle
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6871656872739490280, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_LocalScale.x
