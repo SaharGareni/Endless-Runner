@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: spawnHeight
-      value: -3.5
+      value: -3.25
       objectReference: {fileID: 0}
     - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: heightVariation
-      value: 0.5
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 1312506233526133712, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: useRandomHeight
