@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
             || Input.GetKeyDown(KeyCode.W)
             || Input.GetKeyDown(KeyCode.S)
             || Input.GetKeyDown(KeyCode.UpArrow)
-            || Input.GetKeyDown(KeyCode.DownArrow);
+            || Input.GetKeyDown(KeyCode.DownArrow) 
+            || Input.GetKeyDown(KeyCode.LeftAlt);
     }
 }
