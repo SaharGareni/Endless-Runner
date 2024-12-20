@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject obstacleSpawner;
+    private ObstacleSpawner obstacleSpawner;
     private bool gameStarted;
     private bool gameOver;
     private static float timeToMaxDifficulty = 130f;
     private static float timeSinceGameStart;
-    ////For debugging just to see the difficulty in the inspector this
-    //public float difficultyPercent;
-    public static GameManager Instance { get; private set; }
+    //For debugging just to see the difficulty in the inspector this
+    public float difficultyPercent;
+    public static GameManager Instance;
     public static event System.Action OnInputDetected;
     void Awake()
     {
@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            obstacleSpawner.SetActive(false);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.LoadScene(1);
         }
         else
         {
@@ -28,15 +29,15 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-       ////Just for debugging there is no need for this
-        //difficultyPercent = Mathf.Clamp01(Time.timeSinceLevelLoad / timeToMaxDifficulty);
+        //Just for debugging there is no need for this
+        difficultyPercent = Mathf.Clamp01(timeSinceGameStart / timeToMaxDifficulty);
         if (gameStarted)
         {
             timeSinceGameStart += Time.deltaTime;
             if (gameOver && CheckForInput())
             {
                 OnInputDetected?.Invoke();
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
                 Resume();
             }
         }
@@ -45,7 +46,10 @@ public class GameManager : MonoBehaviour
             if (CheckForInput())
             {
                 gameStarted = true;
-                obstacleSpawner.SetActive(true);
+                if (obstacleSpawner != null)
+                {
+                  obstacleSpawner.gameObject.SetActive(true);
+                }
                 OnInputDetected?.Invoke();
 
             }
@@ -58,6 +62,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         PlayerController.OnPlayerDeath -= HandlePlayerDeath;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void HandlePlayerDeath()
     {
@@ -75,6 +80,19 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         Time.timeScale = 1f;
         timeSinceGameStart = 0f;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            obstacleSpawner = FindAnyObjectByType<ObstacleSpawner>();
+          
+            if (obstacleSpawner != null && !gameStarted)
+            {
+                obstacleSpawner.gameObject.SetActive(false);
+                //obstacleSpawner.enabled = false;
+            }
+        }
     }
     public static float GetDifficultyPercentage()
     {
