@@ -6,31 +6,43 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject titleScreen;
     [SerializeField] private TextMeshProUGUI score;
     private bool isGameOver;
-    void Start()
+    private bool isTitleScreenActive;
+    public static UIManager Instance { get; private set; } 
+    void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+    private void Start()
+    {
+        isTitleScreenActive = true;
+        titleScreen.SetActive(true);
     }
     private void OnEnable()
     {
         PlayerController.OnPlayerDeath += HandlePlayerDeath;
+        GameManager.OnInputDetected += HandleInputDetected;
     }
     private void OnDisable()
     {
         PlayerController.OnPlayerDeath -= HandlePlayerDeath;
+        GameManager.OnInputDetected -= HandleInputDetected;
     }
 
     void Update()
     {
-        if (isGameOver)
-        {
-            if (CheckForInput())
-            {
-                SceneManager.LoadScene(0);
-                Time.timeScale = 1.0f;
-            }
-        }
+
     }
     private void HandlePlayerDeath()
     {
@@ -39,13 +51,17 @@ public class UIManager : MonoBehaviour
         isGameOver = true;
 
     }
-    private bool CheckForInput()
+    private void HandleInputDetected()
     {
-        return Input.GetKeyDown(KeyCode.Space)
-            || Input.GetKeyDown(KeyCode.W)
-            || Input.GetKeyDown(KeyCode.S)
-            || Input.GetKeyDown(KeyCode.UpArrow)
-            || Input.GetKeyDown(KeyCode.DownArrow) 
-            || Input.GetKeyDown(KeyCode.LeftAlt);
+        if (isGameOver)
+        {
+            isGameOver = false;
+            gameOverScreen.SetActive(false);
+        } 
+        if (isTitleScreenActive)
+        {
+            isTitleScreenActive = false;
+            titleScreen.SetActive(false);
+        }
     }
 }
