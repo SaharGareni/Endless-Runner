@@ -61,7 +61,11 @@ public class UIManager : MonoBehaviour
         if (isTitleScreenActive)
         {
             isTitleScreenActive = false;
-            titleScreen.SetActive(false);
+            //titleScreen.SetActive(false);
+            if (titleScreen.TryGetComponent<UiMovement>(out var uiMovement))
+            {
+                uiMovement.enabled = true;
+            }
         }
     }
 }

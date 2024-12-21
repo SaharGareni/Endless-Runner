@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9412f9a1a23016c44a964c745e041455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMaxSpawnInterval: {x: 2.5, y: 0.65}
+  minMaxSpawnInterval: {x: 2.2, y: 0.8}
   prefabPooler: {fileID: 322566658}
   spawnHorizontalOffset: 1
 --- !u!4 &391822271
@@ -2640,7 +2640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2103351049
 Transform:
   m_ObjectHideFlags: 0
