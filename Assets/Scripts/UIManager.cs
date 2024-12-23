@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject titleScreen;
+    //TODO: assign the new score screen and replace the current serilized field with a game object one to hold the correct panel
+    [SerializeField] private GameObject scorePanel;
+    //TODO:after implemting a Score property in game manager, remove the below refrence
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private TextMeshProUGUI highScore;
     private bool isGameOver;
@@ -44,11 +47,12 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        //TODO: change the math behind the score calc and access it from game manager, ui manager should not be concerned with this logic
+        //FIX: the below logic now uses Time.timeSinceLevelLoad as a reference to the score which technically works fine except for the first iteration of the game (title screen iteration)
         score.text = Mathf.RoundToInt(100 * Time.timeSinceLevelLoad * GameManager.GetDifficultyPercentage()).ToString();
     }
     private void HandlePlayerDeath()
     {
-        
         highScore.text = PlayerPrefs.GetInt("HighScore").ToString();
         gameOverScreen.SetActive(true);
         isGameOver = true;
@@ -56,6 +60,9 @@ public class UIManager : MonoBehaviour
     }
     private void HandleInputDetected()
     {
+        //TODO: add logic here to display the score counter after the title screen is gone
+       //* Dont forget to change the jumpy, shaky text scripts that you use in the text effect to use Time.unscaledDeltaTime
+       // Should only be relevant 
         if (isGameOver)
         {
             isGameOver = false;
@@ -68,6 +75,7 @@ public class UIManager : MonoBehaviour
             {
                 uiMovement.enabled = true;
             }
+            scorePanel.SetActive(true);
         }
     }
 }

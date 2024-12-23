@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //TODO: optimize and clean up the useless code in here and the rest of the scripts
     private ObstacleSpawner obstacleSpawner;
     private bool gameStarted;
     private bool gameOver;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float difficultyPercent;
     public static GameManager Instance;
     public static event System.Action OnInputDetected;
+    //TODO: create a score property and calculate it from here with a private setter and public getter for ui maanger
     void Awake()
     {
         if (Instance == null)
