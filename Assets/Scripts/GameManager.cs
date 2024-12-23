@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private bool gameOver;
     private static float timeToMaxDifficulty = 130f;
     private static float timeSinceGameStart;
+    private int highScore;
     //For debugging just to see the difficulty in the inspector this
     public float difficultyPercent;
     public static GameManager Instance;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("MainGame");
         }
         else
         {
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
             if (gameOver && CheckForInput())
             {
                 OnInputDetected?.Invoke();
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene("MainGame");
                 Resume();
             }
         }
@@ -67,6 +68,11 @@ public class GameManager : MonoBehaviour
     private void HandlePlayerDeath()
     {
         gameOver = true;
+        highScore = Mathf.RoundToInt(100 * Time.timeSinceLevelLoad * GetDifficultyPercentage());
+        if (highScore > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore",highScore);
+        }
         Pause();
     }
     public void Pause()
