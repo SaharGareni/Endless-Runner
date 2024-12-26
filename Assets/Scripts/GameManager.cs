@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private ObstacleSpawner obstacleSpawner;
     private bool gameStarted;
     private bool gameOver;
+    private float scoreFloat;
     private static float timeToMaxDifficulty = 130f;
     private static float timeSinceGameStart;
     private int highScore;
@@ -14,7 +15,8 @@ public class GameManager : MonoBehaviour
     public float difficultyPercent;
     public static GameManager Instance;
     public static event System.Action OnInputDetected;
-    //TODO: create a score property and calculate it from here with a private setter and public getter for ui maanger
+    public int Score {  get; private set; }
+    //TODO: create a score property and calculate it from here with a private setter and public getter for ui mannger
     void Awake()
     {
         if (Instance == null)
@@ -40,8 +42,15 @@ public class GameManager : MonoBehaviour
             if (gameOver && CheckForInput())
             {
                 OnInputDetected?.Invoke();
+                Score = 0;
+                scoreFloat = 0f;
                 SceneManager.LoadScene("MainGame");
                 Resume();
+            }
+            if (!gameOver)
+            {
+                scoreFloat += 20f * Time.deltaTime;
+                Score = Mathf.FloorToInt(scoreFloat);
             }
         }
         else
@@ -70,9 +79,13 @@ public class GameManager : MonoBehaviour
     private void HandlePlayerDeath()
     {
         gameOver = true;
-        highScore = Mathf.RoundToInt(100 * Time.timeSinceLevelLoad * GetDifficultyPercentage());
+        //TODO: This is currently refered to as "highScore" but this should change to just "score"
+        // then the logic should check if's truely a highscore or not
+        //TODO: 
+        highScore = Score;
         if (highScore > PlayerPrefs.GetInt("HighScore"))
         {
+            //TODO:
             PlayerPrefs.SetInt("HighScore",highScore);
         }
         Pause();

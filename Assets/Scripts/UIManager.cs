@@ -49,7 +49,8 @@ public class UIManager : MonoBehaviour
     {
         //TODO: change the math behind the score calc and access it from game manager, ui manager should not be concerned with this logic
         //FIX: the below logic now uses Time.timeSinceLevelLoad as a reference to the score which technically works fine except for the first iteration of the game (title screen iteration)
-        score.text = Mathf.RoundToInt(100 * Time.timeSinceLevelLoad * GameManager.GetDifficultyPercentage()).ToString();
+        //TODO: Change static refrences to GameManager to the static instance refrence (singleton)
+        score.text = GameManager.Instance.Score.ToString();
     }
     private void HandlePlayerDeath()
     {

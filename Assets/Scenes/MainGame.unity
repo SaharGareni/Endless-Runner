@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 391822269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.96, y: -3.52, z: -0.011171151}
+  m_LocalPosition: {x: 11.991, y: -3.528, z: -0.011171151}
   m_LocalScale: {x: 0.8409, y: 0.8409, z: 0.8409}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1059,7 +1059,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 2097453854}
   titleScreen: {fileID: 2054588389}
+  scorePanel: {fileID: 0}
   score: {fileID: 285848054}
+  highScore: {fileID: 0}
 --- !u!4 &650405046
 Transform:
   m_ObjectHideFlags: 0
@@ -1964,7 +1966,7 @@ Transform:
   m_GameObject: {fileID: 1617196726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.994, y: -3.644, z: -0.09118136}
+  m_LocalPosition: {x: 10.986, y: -3.536, z: -0.09118136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

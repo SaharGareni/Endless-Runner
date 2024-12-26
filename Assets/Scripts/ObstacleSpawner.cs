@@ -22,6 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
         while (true)
         {
             SpawnRandomObstacle();
+            //TODO: Change the static refrence of GameManager to the static instance of it instead (singleton)
             float spawnInterval = Mathf.Lerp(minMaxSpawnInterval.x, minMaxSpawnInterval.y, GameManager.GetDifficultyPercentage());
             yield return new WaitForSeconds(spawnInterval);
         }

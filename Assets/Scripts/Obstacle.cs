@@ -16,6 +16,7 @@ public class Obstacle : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //TODO: Change the static refrence of GameManager to the static instance of it instead (singleton)
         float speed = Mathf.Lerp(minMaxSpeed.x,minMaxSpeed.y, GameManager.GetDifficultyPercentage());
         transform.Translate(Vector2.left * speed * Time.deltaTime);
         if (transform.position.x < despawnRange)
