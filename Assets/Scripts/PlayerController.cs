@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Obstacle"))
         {
+            animator.SetTrigger("Hit");
             OnPlayerDeath?.Invoke();
         }
     }
