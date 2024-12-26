@@ -39,7 +39,7 @@ public class JumpingText : MonoBehaviour
             vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
 
             // Calculate jumping offset
-            float jumpOffset = Mathf.Sin(Time.time * jumpSpeed + i * delayBetweenChars) * jumpHeight;
+            float jumpOffset = Mathf.Sin(Time.unscaledTime * jumpSpeed + i * delayBetweenChars) * jumpHeight;
 
             // Move the vertices of the character
             Vector3 offset = new Vector3(0, jumpOffset, 0);
