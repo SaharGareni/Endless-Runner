@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private bool gameStarted;
     private bool gameOver;
     private float scoreFloat;
-    private static float timeToMaxDifficulty = 130f;
+    private static float timeToMaxDifficulty = 90f;
     private static float timeSinceGameStart;
     private int highScore;
     //For debugging just to see the difficulty in the inspector this

@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51, y: 272}
-  m_SizeDelta: {x: 1382.41, y: 127.5}
+  m_AnchoredPosition: {x: 18, y: 272}
+  m_SizeDelta: {x: 1823.2714, y: 127.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2696242
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wally
+  m_text: Peecko
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f97ba6b542874de49914ee2a11029bd2, type: 2}
   m_sharedMaterial: {fileID: 5302717876125524041, guid: f97ba6b542874de49914ee2a11029bd2, type: 2}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

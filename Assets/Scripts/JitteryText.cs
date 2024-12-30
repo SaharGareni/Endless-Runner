@@ -26,6 +26,9 @@ public class JitteryText : MonoBehaviour
 
     private void Start()
     {
+        //TODO: Add logic here that takes the number string and converts back to int
+        //Then set the amplitude based on number
+
         // Force an initial update so we can get accurate character count and positions
         textMeshPro.ForceMeshUpdate();
         textInfo = textMeshPro.textInfo;
