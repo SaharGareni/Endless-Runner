@@ -36,6 +36,9 @@ public class UIManager : MonoBehaviour
     }
     private void OnEnable()
     {
+        //TODO: Instead of having player UiManager subscribe directly to the player controller -
+        // - have it subscribe to an event on GameManager: we have to do this because the order at which the
+        //score is cacluated and displayed matters alot.
         PlayerController.OnPlayerDeath += HandlePlayerDeath;
         GameManager.OnInputDetected += HandleInputDetected;
     }
