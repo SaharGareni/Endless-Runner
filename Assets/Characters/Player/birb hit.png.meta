@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: e5f9d4a8e19eee946ba3918098db05db
+guid: 7c122e95b50ac3149b7c803a75ed621b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8792752712197653280
-    second: keysV1 1_0
+      213: 3305985114178698739
+    second: birb hit_0
   - first:
-      213: -4877832740632677497
-    second: keysV1 1_1
+      213: -3651225578962388315
+    second: birb hit_1
   - first:
-      213: -9065512445790740765
-    second: keysV1 1_2
-  - first:
-      213: -5008488469947566623
-    second: keysV1 1_3
-  - first:
-      213: 383417049809165736
-    second: keysV1 1_4
-  - first:
-      213: 728472823803728617
-    second: keysV1 1_5
+      213: 2385081627432038365
+    second: birb hit_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,78 +106,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: keysV1 1_0
+      name: birb hit_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 34
-        width: 13
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 023c4687102260a70800000000000000
-      internalID: 8792752712197653280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: keysV1 1_1
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 35
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 783b1dc57f47e4cb0800000000000000
-      internalID: -4877832740632677497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: keysV1 1_2
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 34
-        width: 13
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3ee92c13674d03280800000000000000
-      internalID: -9065512445790740765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: keysV1 1_3
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 33
-        width: 12
+        x: 0
+        y: 0
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,19 +121,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e5b22fc5464e7ab0800000000000000
-      internalID: -5008488469947566623
+      spriteID: 3fdb95b02f731ed20800000000000000
+      internalID: 3305985114178698739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: keysV1 1_4
+      name: birb hit_1
       rect:
         serializedVersion: 2
-        x: 145
-        y: 33
-        width: 12
+        x: 21
+        y: 0
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ad14be76cb225500800000000000000
-      internalID: 383417049809165736
+      spriteID: 5aa70235ead345dc0800000000000000
+      internalID: -3651225578962388315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: keysV1 1_5
+      name: birb hit_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 34
-        width: 14
-        height: 14
+        x: 40
+        y: 0
+        width: 19
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e2d8537c2e0c1a00800000000000000
-      internalID: 728472823803728617
+      spriteID: ddfa56b7a13891120800000000000000
+      internalID: 2385081627432038365
       vertices: []
       indices: 
       edges: []
@@ -260,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      keysV1 1_0: 8792752712197653280
-      keysV1 1_1: -4877832740632677497
-      keysV1 1_2: -9065512445790740765
-      keysV1 1_3: -5008488469947566623
-      keysV1 1_4: 383417049809165736
-      keysV1 1_5: 728472823803728617
+      birb hit_0: 3305985114178698739
+      birb hit_1: -3651225578962388315
+      birb hit_2: 2385081627432038365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

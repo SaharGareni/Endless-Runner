@@ -24,6 +24,7 @@ public class TileScript : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    //TODO: this logic is not great and i would like to replace it with  a different approach to calculate the spawn interval
     public static float GetTileSpeed()
     {
         return speed;

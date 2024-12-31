@@ -17,6 +17,7 @@ public class TileSpawner : MonoBehaviour
     }
     private void Update()
     {
+        //TODO: think of  way to change the GetTileSpeed logic with something else, this creates coupling for no reason
         spawnInterval = (Camera.main.aspect * Camera.main.orthographicSize * 2) / TileScript.GetTileSpeed();
     }
 

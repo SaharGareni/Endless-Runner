@@ -3,15 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //TODO: optimize and clean up the useless code in here and the rest of the scripts
     private ObstacleSpawner obstacleSpawner;
     private bool gameStarted;
     private bool gameOver;
-    private static float timeToMaxDifficulty = 130f;
+    private float scoreFloat;
+    private static float timeToMaxDifficulty = 90f;
     private static float timeSinceGameStart;
+    private int highScore;
     //For debugging just to see the difficulty in the inspector this
     public float difficultyPercent;
     public static GameManager Instance;
     public static event System.Action OnInputDetected;
+    public int Score {  get; private set; }
+    //TODO: create a score property and calculate it from here with a private setter and public getter for ui mannger
     void Awake()
     {
         if (Instance == null)
@@ -19,7 +24,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("MainGame");
         }
         else
         {
@@ -37,8 +42,15 @@ public class GameManager : MonoBehaviour
             if (gameOver && CheckForInput())
             {
                 OnInputDetected?.Invoke();
-                SceneManager.LoadScene(1);
+                Score = 0;
+                scoreFloat = 0f;
+                SceneManager.LoadScene("MainGame");
                 Resume();
+            }
+            if (!gameOver)
+            {
+                scoreFloat += 20f * Time.deltaTime;
+                Score = Mathf.FloorToInt(scoreFloat);
             }
         }
         else
@@ -67,6 +79,15 @@ public class GameManager : MonoBehaviour
     private void HandlePlayerDeath()
     {
         gameOver = true;
+        //TODO: This is currently refered to as "highScore" but this should change to just "score"
+        // then the logic should check if's truely a highscore or not
+        //TODO: 
+        highScore = Score;
+        if (highScore > PlayerPrefs.GetInt("HighScore"))
+        {
+            //TODO:
+            PlayerPrefs.SetInt("HighScore",highScore);
+        }
         Pause();
     }
     public void Pause()

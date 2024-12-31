@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3816232711183946926, guid: fa5dda08f84269a4f8ada5c763765efe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.19
+      value: -4.176
       objectReference: {fileID: 0}
     - target: {fileID: 3816232711183946926, guid: fa5dda08f84269a4f8ada5c763765efe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9412f9a1a23016c44a964c745e041455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMaxSpawnInterval: {x: 2.5, y: 0.65}
+  minMaxSpawnInterval: {x: 2.2, y: 0.8}
   prefabPooler: {fileID: 322566658}
   spawnHorizontalOffset: 1
 --- !u!4 &391822271
@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 391822269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.96, y: -3.52, z: -0.011171151}
+  m_LocalPosition: {x: 11.991, y: -3.528, z: -0.011171151}
   m_LocalScale: {x: 0.8409, y: 0.8409, z: 0.8409}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1059,7 +1059,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 2097453854}
   titleScreen: {fileID: 2054588389}
+  scorePanel: {fileID: 0}
   score: {fileID: 285848054}
+  highScore: {fileID: 0}
 --- !u!4 &650405046
 Transform:
   m_ObjectHideFlags: 0
@@ -1964,7 +1966,7 @@ Transform:
   m_GameObject: {fileID: 1617196726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.994, y: -3.644, z: -0.09118136}
+  m_LocalPosition: {x: 10.986, y: -3.536, z: -0.09118136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2640,7 +2642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2103351049
 Transform:
   m_ObjectHideFlags: 0

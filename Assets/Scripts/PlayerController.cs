@@ -4,6 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D standBoxCollider;
     [SerializeField] private BoxCollider2D crouchBoxCollider;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundCheckRadius = 0.2f;
     private bool jumpRequested;
     private bool crouchRequested;
     private bool isGrounded;
@@ -15,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public static event System.Action OnPlayerDeath;
     void Start()
     {
-        //Time.timeScale = 0.1f; // for debugging purposes
+        /*Time.timeScale = 0.1f;*/ // for debugging purposes
         initialPlayerHeight = transform.position.y;
         rigidBody2d = transform.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -38,14 +41,14 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        isGrounded = Mathf.Abs(transform.position.y - initialPlayerHeight) < 0.1f;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         HandleJump();
         HandleCrouch();
         HandleAnimations();
     }
     void HandleCrouch()
     {
-        if (crouchRequested)
+        if (crouchRequested && isGrounded)
         {
             crouchBoxCollider.enabled = true;
             standBoxCollider.enabled = false;
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Obstacle"))
         {
+            animator.SetTrigger("Hit");
             OnPlayerDeath?.Invoke();
         }
     }
