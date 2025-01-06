@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour
         {
             crouchBoxCollider.enabled = true;
             standBoxCollider.enabled = false;
+            //TODO: If you do decide to go into event invocation for sounds you can do something like this
+            //if (!isCrouching) { OnJumpRequested?.Invoke() } (which will play the sound on the first the first iteration if the player holds down the key) 
+            //BTW this could be a good substitute for the GameManager.CheckForInput() since the only input we have comes from the player controller. 
         }
         else
         {
