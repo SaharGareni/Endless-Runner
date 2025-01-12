@@ -39,7 +39,8 @@ public class AudioManager : MonoBehaviour
             {
                 sound.source = gameObject.AddComponent<AudioSource>();
                 sound.source.volume = sound.volume;
-                sound.source.pitch = sound.pitch;             
+                sound.source.pitch = sound.pitch;
+                sound.source.loop = sound.loop;
             }
         }
     }
