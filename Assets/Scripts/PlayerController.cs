@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private bool crouchRequested;
     private bool isGrounded;
     private bool isCrouching;
-    private float initialPlayerHeight;
     private Animator animator;
     private Rigidbody2D rigidBody2d;
     public float jumpHeight;
@@ -19,7 +18,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         /*Time.timeScale = 0.1f;*/ // for debugging purposes
-        initialPlayerHeight = transform.position.y;
         rigidBody2d = transform.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         crouchBoxCollider.enabled = false;
@@ -55,6 +53,10 @@ public class PlayerController : MonoBehaviour
             //TODO: If you do decide to go into event invocation for sounds you can do something like this
             //if (!isCrouching) { OnJumpRequested?.Invoke() } (which will play the sound on the first the first iteration if the player holds down the key) 
             //BTW this could be a good substitute for the GameManager.CheckForInput() since the only input we have comes from the player controller. 
+            if (!isCrouching)
+            {
+                AudioManager.instance.PlaySound("Crouch");
+            }
         }
         else
         {
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && jumpRequested)
         {
             rigidBody2d.linearVelocity = Vector2.up * jumpHeight;
+            AudioManager.instance.PlaySound("Jump");
         }
         jumpRequested = false;
 
@@ -85,6 +88,7 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("Obstacle"))
         {
             animator.SetTrigger("Hit");
+            AudioManager.instance.PlaySound("Hit");
             OnPlayerDeath?.Invoke();
         }
     }
