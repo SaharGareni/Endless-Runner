@@ -18,10 +18,6 @@ public class Background : MonoBehaviour
         {
             transform.position = new Vector2(spriteLength, transform.position.y);  
         }
-        ////lag machine to test 
-        //for (int i = 0; i < 1000000; i++)
-        //{
-        //    float num = Mathf.Atan2(speed, i);
-        //}
+
     }
 }
