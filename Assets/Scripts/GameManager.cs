@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1)
+        if (scene.buildIndex == 1 || scene.name == "MainGame")
         {
             obstacleSpawner = FindAnyObjectByType<ObstacleSpawner>();
           
