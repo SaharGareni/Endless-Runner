@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private ObstacleSpawner obstacleSpawner;
     private bool gameStarted;
     private bool gameOver;
+    private float scoreMultiplier = 20f;
     private float scoreFloat;
     private static float timeToMaxDifficulty = 90f;
     private static float timeSinceGameStart;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
             }
             if (!gameOver)
             {
-                scoreFloat += 20f * Time.deltaTime;
+                scoreFloat += scoreMultiplier * Time.deltaTime;
                 Score = Mathf.FloorToInt(scoreFloat);
             }
         }
