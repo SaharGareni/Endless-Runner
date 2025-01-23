@@ -85,6 +85,10 @@ PrefabInstance:
       value: 0.46668637
       objectReference: {fileID: 0}
     - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066502254716572053, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
       propertyPath: m_Offset.x
       value: -0.03189963
       objectReference: {fileID: 0}
@@ -103,5 +107,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3215264062663054788, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8136933117617525505}
   m_SourcePrefab: {fileID: 100100000, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+--- !u!1 &4859563985189871420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3215264062663054788, guid: 211c1a8d58600d94b9eee708a7bcad32, type: 3}
+  m_PrefabInstance: {fileID: 8065465431195536120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &8136933117617525505
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4859563985189871420}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.19}
+  m_Size: {x: 0.62, y: 0.48}
+  m_Direction: 0
