@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Peecko
+  m_text: Flynn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f97ba6b542874de49914ee2a11029bd2, type: 2}
   m_sharedMaterial: {fileID: 5302717876125524041, guid: f97ba6b542874de49914ee2a11029bd2, type: 2}
@@ -889,6 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e8317b9d3ce494f834a5bd3225dba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minMaxScoreMultiplier: {x: 20, y: 80}
   difficultyPercent: 0
 --- !u!4 &719680420
 Transform:

@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //TODO: optimize and clean up the useless code in here and the rest of the scripts
+    [SerializeField] private Vector2 minMaxScoreMultiplier;
     private ObstacleSpawner obstacleSpawner;
     private bool gameStarted;
     private bool gameOver;
-    private float scoreMultiplier = 20f;
+    private float scoreMultiplier;
     private float scoreFloat;
     private static float timeToMaxDifficulty = 90f;
     private static float timeSinceGameStart;
@@ -50,8 +51,8 @@ public class GameManager : MonoBehaviour
             }
             if (!gameOver)
             {
-                scoreFloat += scoreMultiplier * Time.deltaTime;
-                Score = Mathf.FloorToInt(scoreFloat);
+                UpdateScore();
+
             }
         }
         else
@@ -128,5 +129,11 @@ public class GameManager : MonoBehaviour
             || Input.GetKeyDown(KeyCode.UpArrow)
             || Input.GetKeyDown(KeyCode.DownArrow)
             || Input.GetKeyDown(KeyCode.LeftAlt);
+    }
+    private void UpdateScore()
+    {
+        scoreMultiplier = Mathf.Lerp(minMaxScoreMultiplier.x,minMaxScoreMultiplier.y,GetDifficultyPercentage());
+        scoreFloat += scoreMultiplier * Time.deltaTime;
+        Score = Mathf.FloorToInt(scoreFloat);
     }
 }
