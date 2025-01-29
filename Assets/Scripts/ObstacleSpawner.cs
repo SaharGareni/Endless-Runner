@@ -6,12 +6,16 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private Vector2 minMaxSpawnInterval;
     [SerializeField] private PrefabPooler prefabPooler;
     [SerializeField] private float spawnHorizontalOffset = 1f;
-    //public float spawnInterval = 1f;
+    [SerializeField] private float baseOrthoSize;
+    private float spawnVerticalOffset;
     private float mainCameraHalfWidth;
     private float horizontalSpawnPosition;
     private Vector3 spawnLocation;
     void Start()
     {
+        float baseGroundY = -baseOrthoSize;
+        float currentGroundY = -Camera.main.orthographicSize;
+        spawnVerticalOffset = Mathf.Abs(baseGroundY - currentGroundY);
         mainCameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         horizontalSpawnPosition = spawnHorizontalOffset + mainCameraHalfWidth;
         spawnLocation.x = horizontalSpawnPosition;
@@ -31,7 +35,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, prefabPooler.poolItems.Length);
         GameObject randomPrefab = prefabPooler.poolItems[randomIndex].prefab;
-        spawnLocation.y = randomPrefab.GetComponent<Obstacle>().GetSpawnHeight();
+        spawnLocation.y = randomPrefab.GetComponent<Obstacle>().GetSpawnHeight() + spawnVerticalOffset;
         prefabPooler.GetPooledObject(randomPrefab, spawnLocation);
     }
 }
