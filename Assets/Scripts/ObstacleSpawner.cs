@@ -13,9 +13,11 @@ public class ObstacleSpawner : MonoBehaviour
     private Vector3 spawnLocation;
     void Start()
     {
-        float baseGroundY = -baseOrthoSize;
-        float currentGroundY = -Camera.main.orthographicSize;
-        spawnVerticalOffset = Mathf.Abs(baseGroundY - currentGroundY);
+        //float baseGroundY = -baseOrthoSize;
+        //float currentGroundY = -Camera.main.orthographicSize;
+        //spawnVerticalOffset = Mathf.Abs(baseGroundY - currentGroundY);
+        float orthoSizeRatio = Camera.main.orthographicSize / baseOrthoSize;
+        spawnVerticalOffset = (1 - orthoSizeRatio) * baseOrthoSize;
         mainCameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         horizontalSpawnPosition = spawnHorizontalOffset + mainCameraHalfWidth;
         spawnLocation.x = horizontalSpawnPosition;
